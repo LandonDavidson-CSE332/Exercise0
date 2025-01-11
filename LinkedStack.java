@@ -13,10 +13,17 @@ public class LinkedStack<T> implements MyStack<T> {
             this.data = data;
         }
     }
+
     private ListNode<T> head;
     private int elements = 0;
+
     public LinkedStack(int head_val) {
         this.head = new ListNode<>(head.data, null);
         this.elements = 1;
+    }
+
+    public void insert(int data) {
+        ListNode<T> node = new ListNode<>(data, this.head);
+        this.head = node;
     }
 }
