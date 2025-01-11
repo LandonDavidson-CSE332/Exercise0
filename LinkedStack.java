@@ -1,5 +1,6 @@
 public class LinkedStack<T> implements MyStack<T> {
-    
+
+    // Provided ListNode class defining each node of the STack's linked list
     private static class ListNode<T>{
         private final T data;
         private ListNode<T> next;
@@ -14,13 +15,9 @@ public class LinkedStack<T> implements MyStack<T> {
         }
     }
 
-    private ListNode<T> head;
-    private int size;
-
-    public LinkedStack() {
-        this.head = new ListNode<>(null);
-        this.size = 1;
-    }
+    // Initialize list head and size
+    private ListNode<T> head = null;
+    private int size = 0;
 
     @Override
     public void push(T data) {
@@ -33,8 +30,8 @@ public class LinkedStack<T> implements MyStack<T> {
         if (this.size == 0) {
             throw new IllegalStateException();
         }
-        T data = this.head.data;
         this.size--;
+        T data = this.head.data;
         this.head = this.head.next;
         return data;
     }
