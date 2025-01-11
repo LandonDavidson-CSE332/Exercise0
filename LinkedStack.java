@@ -52,3 +52,11 @@ public class LinkedStack<T> implements MyStack<T> {
         return this.size ? false : true;
     }
 }
+
+public static void main(String[] args) {
+    LinkedStack<Integer> stack = new LinkedStack<>();
+    stack.push(10);
+    stack.push(20);
+    stack.push(5);
+    System.out.println
+}
