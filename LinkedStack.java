@@ -15,48 +15,45 @@ public class LinkedStack<T> implements MyStack<T> {
     }
 
     private ListNode<T> head;
-    private int size = 0;
+    private int size;
 
-    public LinkedStack(T head_val) {
-        this.head = new ListNode<>(head.data, null);
+    public LinkedStack() {
+        this.head = new ListNode<>(null);
         this.size = 1;
     }
 
+    @Override
     public void push(T data) {
         this.head = new ListNode<>(data, this.head);
         this.size++;
     }
 
+    @Override
     public T pop() {
-        i f(this.size == 0) {
+        if (this.size == 0) {
             return null;
         }
         T data = this.head.data;
         this.size--;
-        this.head = old_head.next;
+        this.head = this.head.next;
         return data;
     }
 
+    @Override
     public T peek() {
         if (this.size == 0) {
-            return;
+            return null;
         }
         return this.head.data;
     }
 
+    @Override
     public int size() {
         return this.size;
     }
 
+    @Override
     public boolean isEmpty() {
-        return this.size ? false : true;
+        return this.size == 0;
     }
-}
-
-public static void main(String[] args) {
-    LinkedStack<Integer> stack = new LinkedStack<>();
-    stack.push(10);
-    stack.push(20);
-    stack.push(5);
-    System.out.println
 }
