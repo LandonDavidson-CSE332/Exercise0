@@ -31,7 +31,7 @@ public class LinkedStack<T> implements MyStack<T> {
     @Override
     public T pop() {
         if (this.size == 0) {
-            return null;
+            throw new IllegalStateException();
         }
         T data = this.head.data;
         this.size--;
@@ -42,7 +42,7 @@ public class LinkedStack<T> implements MyStack<T> {
     @Override
     public T peek() {
         if (this.size == 0) {
-            return null;
+            throw new IllegalStateException();
         }
         return this.head.data;
     }
