@@ -1,13 +1,8 @@
 public class LinkedQueue<E> implements MyQueue<E>{
 
-    private ListNode<E> head;
-    private ListNode<E> tail;
+    private ListNode<E> head = null;
+    private ListNode<E> tail = null;
     private int size = 0;
-
-    public LinkedQueue() {
-        this.head = new ListNode<>(null);
-        this.tail = this.head;
-    }
 
     @Override
     public void enqueue(E item) {
@@ -55,5 +50,16 @@ public class LinkedQueue<E> implements MyQueue<E>{
         private ListNode(E data){
             this.data = data;
         }
+    }
+
+    public static void main(String[] args) {
+        LinkedQueue<Integer> queue = new LinkedQueue<>();
+        queue.enqueue(10);
+        queue.enqueue(100);
+        queue.enqueue(5);
+        System.out.println(queue.dequeue());
+        System.out.println(queue.dequeue());
+        System.out.println(queue.dequeue());
+
     }
 }
