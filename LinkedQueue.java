@@ -7,6 +7,9 @@ public class LinkedQueue<E> implements MyQueue<E>{
     @Override
     public void enqueue(E item) {
         this.tail = new ListNode<>(item, this.tail);
+        if (this.size == 0) {
+            this.head = this.tail;
+        }
         size++;
     }
 
