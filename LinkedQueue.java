@@ -31,6 +31,7 @@ public class LinkedQueue<E> implements MyQueue<E>{
         // Save the data in head and then move the head one node up the list
         E data = this.head.data;
         this.head = this.head.next;
+        this.size--;
         return data;
     }
 
