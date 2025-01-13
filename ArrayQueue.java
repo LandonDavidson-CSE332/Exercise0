@@ -9,10 +9,12 @@ public class ArrayQueue<T> implements MyQueue<T>{
     // Add item to queue at tail
     @Override
     public void enqueue(T item) {
-        // If queue is full then resize
-        if (this.tail == this.head) {
+        // If queue is full then resize, an empty array looks like a full one so we need the empty boolean
+        if (!this.empty && this.tail == this.head) {
             resize();
         }
+        // Queue isn't empty since we are adding an element
+        this.empty = false;
         // Put item at the empty tail index then iterate and loop tail by 1 for next enqueue
         queue[this.tail] = item;
         this.tail = (this.tail + 1) % this.queue.length;
