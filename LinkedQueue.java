@@ -63,15 +63,4 @@ public class LinkedQueue<E> implements MyQueue<E>{
             this.data = data;
         }
     }
-
-    public static void main(String[] args) {
-        LinkedQueue<Integer> queue = new LinkedQueue<>();
-        queue.enqueue(10);
-        queue.enqueue(100);
-        queue.enqueue(5);
-        System.out.println(queue.dequeue());
-        System.out.println(queue.dequeue());
-        System.out.println(queue.dequeue());
-
-    }
 }
