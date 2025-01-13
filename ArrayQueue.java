@@ -27,28 +27,46 @@ public class ArrayQueue<T> implements MyQueue<T>{
         for (int i = 0; i < this.tail; i++) {
             // Put head at the start of the second quarter of the new queue,
             // ending at the end of the third quarter since new_queue is twice the size of queue
-            new_queue[i + new_queue.length / 4] = this.queue[this.head + i];
+            new_queue[i + new_queue.length / 4] = this.queue[(this.head + i) % this.queue.length];
         }
         this.queue = new_queue;
     }
 
+    // Return the value at head and increment head past old value to dequeue, throw error if empty
     @Override
     public T dequeue() {
-        return null;
+        // If empty throw error
+        if (this.empty) {
+            throw new IllegalStateException();
+        }
+        T data = this.queue[this.head];
+        this.head++;
+        this.empty = this.head == this.tail;
+        return data;
     }
 
+    // Return value at head without dequeuing, throw error if empty
     @Override
     public T peek() {
-        return null;
+        // If empty throw error
+        if (this.empty) {
+            throw new IllegalStateException();
+        }
+        // Return value at head position in queue
+        return this.queue[this.head];
     }
 
+    // Return number of elements in queue
     @Override
     public int size() {
-        return 0;
+        // Return difference between tail and head and then mod by length to account for circularity
+        return (this.tail - this.head) % this.queue.length;
     }
 
+    // Return true if queue is empty
     @Override
     public boolean isEmpty() {
-        return false;
+        // Since we already need to store an empty boolean we can just return that
+        return this.empty;
     }
 }
