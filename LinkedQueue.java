@@ -5,6 +5,7 @@ public class LinkedQueue<E> implements MyQueue<E>{
     private ListNode<E> tail = null;
     private int size = 0;
 
+    // Add item to tail of queue
     @Override
     public void enqueue(E item) {
         // If the list is empty set head and tail to the new node
@@ -20,6 +21,7 @@ public class LinkedQueue<E> implements MyQueue<E>{
         this.size++;
     }
 
+    // Remove head and return its data, throw error if empty
     @Override
     public E dequeue() {
         // If stack is empty throw an error
@@ -32,6 +34,7 @@ public class LinkedQueue<E> implements MyQueue<E>{
         return data;
     }
 
+    // Return data at head of queue, or throw error if empty
     @Override
     public E peek() {
         if (this.size == 0) {
@@ -40,11 +43,13 @@ public class LinkedQueue<E> implements MyQueue<E>{
         return this.head.data;
     }
 
+    // Return size of queue
     @Override
     public int size() {
         return this.size;
     }
 
+    // Return true of size== 0
     @Override
     public boolean isEmpty() {
         return this.size == 0;
